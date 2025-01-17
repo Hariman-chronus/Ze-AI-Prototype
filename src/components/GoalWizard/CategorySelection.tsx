@@ -20,13 +20,13 @@ export function CategorySelection({
   const ExploreIcon = icons[explorationOption.icon as keyof typeof icons];
 
   return (
-    <div>
-      <div className="text-center mb-8">
+    <div className="space-y-12">
+      <div className="text-center">
         <h2 className="text-2xl font-bold">What are your top goals?</h2>
         <p className="text-gray-600 mt-2">Select up to 2 goals that matter most to you</p>
       </div>
       
-      <div className="grid md:grid-cols-2 gap-4 mb-12">
+      <div className="grid md:grid-cols-2 gap-4">
         {categories.map(category => {
           const CategoryIcon = icons[category.icon as keyof typeof icons];
           return (
@@ -52,14 +52,22 @@ export function CategorySelection({
         })}
       </div>
 
-      <div className="flex justify-center">
-        <button
-          onClick={onExplore}
-          className="inline-flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
-        >
-          <ExploreIcon className="w-5 h-5" />
-          <span className="text-lg font-medium">Not sure about your goals? Let's explore together</span>
-        </button>
+      <div className="border-t border-gray-200 pt-8">
+        <div className="flex flex-col items-center text-center">
+          <div className="mb-4 text-gray-500">Not seeing what you're looking for?</div>
+          <button
+            onClick={onExplore}
+            className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-600 to-blue-500 text-white rounded-2xl hover:from-indigo-700 hover:to-blue-600 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            <div className="rounded-full bg-white/20 p-2">
+              <ExploreIcon className="w-6 h-6" />
+            </div>
+            <span className="text-lg font-medium">Let's explore your goals together</span>
+          </button>
+          <p className="mt-3 text-sm text-gray-500">
+            We'll help you discover the right path through a few questions
+          </p>
+        </div>
       </div>
     </div>
   );
